@@ -2,6 +2,10 @@ class StudentsController < ApplicationController
   def new
     @student = Student.new
   end
+  
+  def show 
+      @student = Student.find(params[:id])
+  end
 
   def create
     @student = Student.new(student_params)
@@ -22,6 +26,7 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
+    render :index 
   end
 
   def student_params
